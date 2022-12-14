@@ -8,11 +8,11 @@ export  const GlobalStyled = createGlobalStyle`
   padding: 0;
 }
  :root{
-  --color-grenn: #27AE60;
+  --color-grenn: #219653;
   --color-grenn-light:#93D7AF;
   
   --color-grey-1: #F5F5F5;
-  --color-grey-2: #E0E0E0;
+  --color-grey-2:#FFFFFF;
   --color-grey-3: #828282;
   --color-grey-4: #333333;
   --color-grey-5: #999999;
@@ -28,10 +28,16 @@ export  const GlobalStyled = createGlobalStyle`
  }
  input{
     
-    color: #999999;
-    background: #F5F5F5;
+    color: black;
+    background:#FFFFFF;
     border: 2px solid #F5F5F5;
     border-radius: 8px;
  }
-
+ input::placeholder{
+   color: #999999;
+ }
+ input:focus {
+box-shadow: 0 0 0 0;
+outline: 0;
+ }
 `
