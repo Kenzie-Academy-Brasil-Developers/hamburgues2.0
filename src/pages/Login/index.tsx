@@ -5,7 +5,6 @@ import  log  from '../../imgs/logan.svg'
 import  wtf  from '../../imgs/wtf.svg'
 import bag from '../../imgs/bag.svg'
 import { StyledMain,  StyledContainer,StyledSectionDados,StyledSectionRender } from "./styled"
-
 export const Login =()=>{
     return (
         <StyledMain>
@@ -13,11 +12,11 @@ export const Login =()=>{
                 <StyledSectionDados>
                     <form>
                         <h2>Login</h2>
-                        <Input label="Nome" placeholder="Digite seu nome aqui" type="text"/>
+                        <Input label="Email" placeholder="Digite seu email aqui" type="text"/>
                         <Input label="Senha" placeholder="Digite sua senha aqui" type="password"/>
                         <button className="buttonLogar">Logar</button>
                         <span>Cria sua conta para saborear mais delícias e matar sua fome!</span>
-                        <Button nome='Cadastrar'/>
+                        <Button nome='Acessar'/>
                     </form>
                 </StyledSectionDados>
 
