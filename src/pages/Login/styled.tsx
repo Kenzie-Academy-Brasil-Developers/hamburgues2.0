@@ -29,7 +29,6 @@ export const StyledContainer =styled.div`
 export  const StyledSectionDados =styled.section`
         width: 100%;
         max-width: 500px;
-        background-color: red;
 
         background: var(--color-grey-2);
         border: 0.125rem solid var(--color-grey-1);

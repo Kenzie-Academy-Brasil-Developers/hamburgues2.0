@@ -8,9 +8,9 @@ export  const StyledInput =styled.div`
     border-radius: 0.5rem;
     background: var(--color-grey-2);
 
-    position: relative;
+    background-color: red;
 
-background-color: yellow;
+    position: relative;
     label{
         position: absolute;
         background-color: var(--color-grey-2);
@@ -29,5 +29,11 @@ background-color: yellow;
         height: 100%;
         padding-left: 0.9375rem;
     }
-
+    .miINput{
+        position: absolute;
+        color: red;
+        right: 0;
+        bottom: -21px;
+        text-align: end;
+    }
 `
