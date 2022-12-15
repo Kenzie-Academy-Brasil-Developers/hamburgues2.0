@@ -8,6 +8,14 @@ import styled from "styled-components";
     padding-left: 0.625rem;
     padding-bottom: 0.625rem; 
 
+    article{
+        width: 100%;
+        text-align: center;
+        h1{
+            font-size: 2.1875rem;
+        }
+    }
+
     @media(min-width:661px){
          flex-direction: row;
          flex-wrap: wrap; 

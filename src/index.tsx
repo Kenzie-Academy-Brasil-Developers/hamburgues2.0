@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { App } from "./App";
 import { CartProvider } from "./contexts/CartContext";
+import { ModalProvider } from "./contexts/ModalContext";
 import { UserProvider } from "./contexts/UserContext";
 import reportWebVitals from "./reportWebVitals";
 import { GlobalStyled } from "./styles";
@@ -15,7 +16,9 @@ root.render(
     <BrowserRouter>
       <UserProvider>
         <CartProvider>
-            <App />
+          <ModalProvider>
+               <App />
+          </ModalProvider>
         </CartProvider>
       </UserProvider>
       <GlobalStyled/>

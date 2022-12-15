@@ -4,11 +4,17 @@ import  lupa  from '../../imgs/lupa.svg'
 import  carinho  from '../../imgs/carinho.svg'
 import  sair  from '../../imgs/sair.svg'
 import { useContext, useState } from "react"
-import { string } from "yup"
 import { CartContext } from "../../contexts/CartContext"
+import { ModalCOntext } from "../../contexts/ModalContext"
+import { ModalCarrinho } from "../ModalCarrinho"
+import { useNavigate } from "react-router-dom"
 
 export const Header =()=>{
+    const navegation =useNavigate()
+    
     const {filterCards,altoPrench}=useContext(CartContext)
+    const {openClose,openModal }=useContext(ModalCOntext)
+
     const [valuepes,setValuePesq]=useState('')
     return(
         <StyleHeader>
@@ -24,10 +30,12 @@ export const Header =()=>{
                 <article>
                     <div>
                         <span>0</span>
-                        <img src={carinho} alt="" />
+                        <img onClick={openClose} src={carinho} alt="" />
                     </div>
-                    <img src={sair} alt="" />
+                    <img src={sair} onClick={()=>{navegation('/')}} alt="" />
                 </article>
+                {openModal?<ModalCarrinho/>:null}
+               
         </StyleHeader>  
     )
 }

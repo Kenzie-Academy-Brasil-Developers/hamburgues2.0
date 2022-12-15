@@ -20,7 +20,7 @@ export  const CartContext = createContext <iContextDados>({} as iContextDados)
 
 export  const CartProvider =({children}:iChildren)=>{
     // lista geral de cards renderizados
-    const [listCard,setListCard]=useState<iLista[]>([])
+    const [listCard,setListCard]=useState<iLista[]>([]||'')
     //lista secundaria
     const [listSec,setListSec]=useState<iLista[]>([])
 

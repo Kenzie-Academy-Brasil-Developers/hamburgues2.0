@@ -3,11 +3,10 @@ import { CartContext } from "../../contexts/CartContext"
 import { StyleUl } from "./style"
 
 export const ListCards = ()=>{
-     const {listSec}=useContext(CartContext)
-    
+     const {listSec}=useContext(CartContext)  
     return(
         <StyleUl>
-            {listSec.map((element)=>{
+            {listSec.length===0?<article><h1>Nenhum item encontrado</h1></article>:listSec.map((element)=>{
               return( 
               <li key={element.id}>
                     <img src={element.img} alt='imagem de aleatória' />
