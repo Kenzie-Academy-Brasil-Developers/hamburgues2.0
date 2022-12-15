@@ -8,7 +8,7 @@ export  const GlobalStyled = createGlobalStyle`
   padding: 0;
 }
  :root{
-  --color-grenn: #219653;
+  --color-grenn: #27AE60;
   --color-grenn-light:#93D7AF;
   
   --color-grey-1: #F5F5F5;
