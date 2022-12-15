@@ -29,7 +29,6 @@ export  const CartProvider =({children}:iChildren)=>{
                         authorization: `Bearer ${token}`}})
                         //setando lista
                         setListCard(data)
-                        console.log(data)
             }
             requesProducts()
         }

@@ -23,6 +23,6 @@ export const Header =()=>{
                     </div>
                     <img src={sair} alt="" />
                 </article>
-        </StyleHeader>
+        </StyleHeader>  
     )
 }
