@@ -3,12 +3,11 @@ import { CartContext } from "../../contexts/CartContext"
 import { StyleUl } from "./style"
 
 export const ListCards = ()=>{
-     const {listCard}=useContext(CartContext)
-     
-
+     const {listSec}=useContext(CartContext)
+    
     return(
         <StyleUl>
-            {listCard.map((element)=>{
+            {listSec.map((element)=>{
               return( 
               <li key={element.id}>
                     <img src={element.img} alt='imagem de aleatória' />
@@ -16,7 +15,7 @@ export const ListCards = ()=>{
                         <h3>{element.name}</h3>
                         <span>{element.category}</span>
                         <p>R$ {element.price}</p>
-                        <button/>
+                        <button>Adicionar</button>
                     </div>
                 </li>
               )

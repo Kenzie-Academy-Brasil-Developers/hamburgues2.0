@@ -19,17 +19,17 @@ import styled from "styled-components";
         display: flex;
         flex-direction: column;
         align-items: center;
-        background: #F5F5F5;
+        background: var(--color-grey-1);
         border: 2px solid #E0E0E0;
         border-radius: 0.3125rem;
         img{
             width: 60%;
             height: 9.375rem;
-            background: #F5F5F5;
+            background: var(--color-grey-1);
             
         }
         div{
-            background-color: white;
+            
             width: 100%;
             height: 100%;
             display: flex;
@@ -42,13 +42,13 @@ import styled from "styled-components";
                 font-weight: 700;
                 font-size: 1.125rem;
                 line-height: 1.5rem;
-                color: #333333;
+                color: var(--color-grey-4);
             }
             span{
                 font-weight: 400;
                 font-size: 0.75rem;
                 line-height: 1rem;
-                color: #828282;
+                color: var(--color-grey-3);
             }
             p{
                 font-weight: 600;
@@ -56,11 +56,16 @@ import styled from "styled-components";
                 line-height: 1.5rem;
                 color: var(--color-grenn);
             }
-            @media(max-width:600px){
-        li{
-            background-color: red;
-        }
-    }
+            button{
+                width: 106px;
+                height: 40px;
+                color:var(--color-grey-2);
+                background: #BDBDBD;
+
+                :hover{
+                    background-color:var(--color-grenn);
+                }
+            }
         }
      }
  `
