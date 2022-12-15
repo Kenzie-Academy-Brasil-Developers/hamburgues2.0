@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 export const StyledMain=styled.main`
         display: flex;
         justify-content: center;
@@ -33,6 +32,19 @@ export  const StyledSectionDados =styled.section`
         border: 0.125rem solid var(--color-grey-1);
         box-shadow: 0rem 0rem 1.875rem -1.25rem rgba(0, 0, 0, 0.25);
         border-radius: 0.3125rem;  
+
+        .IMg{
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0; 
+            background-origin: border-box;
+            background-repeat: no-repeat;
+            background-position: center;
+            @media(min-width: 660px) {display:none}
+        }
         form{
             width: 100%;
             

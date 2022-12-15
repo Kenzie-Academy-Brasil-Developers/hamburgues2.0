@@ -5,7 +5,10 @@ import  log  from '../../imgs/logan.svg'
 import  wtf  from '../../imgs/wtf.svg'
 import bag from '../../imgs/bag.svg'
 import { StyledMain,  StyledContainer,StyledSectionDados,StyledSectionRender } from "./styled"
+import { useNavigate } from "react-router-dom"
 export const Login =()=>{
+     const navegation = useNavigate()
+
     return (
         <StyledMain>
             <StyledContainer>
@@ -16,7 +19,7 @@ export const Login =()=>{
                         <Input label="Senha" placeholder="Digite sua senha aqui" type="password"/>
                         <button className="buttonLogar">Logar</button>
                         <span>Cria sua conta para saborear mais delícias e matar sua fome!</span>
-                        <Button nome='Acessar'/>
+                        <Button onClick={()=>{navegation('/register')}} nome='Cadastrar'/>
                     </form>
                 </StyledSectionDados>
 
