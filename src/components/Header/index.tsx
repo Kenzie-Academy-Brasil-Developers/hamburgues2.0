@@ -13,7 +13,7 @@ import { toast } from "react-toastify"
 export const Header =()=>{
     const navegation =useNavigate()
     
-    const {filterCards,altoPrench}=useContext(CartContext)
+    const {filterCards}=useContext(CartContext)
     const {openClose,openModal,itemCar }=useContext(ModalCOntext)
 
     const totalItems = itemCar.length
@@ -30,7 +30,7 @@ export const Header =()=>{
             <div className='divOne'>
                 <img className="loganRemove" src={logan} alt="logo kenzie" />
                 <div>
-                    <input placeholder="Digitar pesquisa" onKeyDown={(event)=>{altoPrench(event)}} onChange={(event)=>{setValuePesq(event.currentTarget.value)}}/>
+                    <input placeholder="Digitar pesquisa"onChange={(event)=>{setValuePesq(event.currentTarget.value)}}/>
                     <button onClick={()=>{filterCards(valuepes)}}>
                         <img src={lupa} alt="" />
                     </button>

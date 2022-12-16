@@ -18,7 +18,7 @@ export const StyleAuxi =styled.div`
         min-height: 15.625rem;
         margin-top: 9.375rem;
 
-        background-color: #FFFF;
+        background: #f5f2f2;
         border-radius: 0.3125rem;
 
         position: relative;

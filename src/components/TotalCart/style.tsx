@@ -21,8 +21,11 @@ export  const StyleTotalContainer = styled.div`
         border-top: 2px solid  #E0E0E0; 
 
         span{
+            font-weight: 600;
+            font-size: 14px;
+             line-height: 24px;
 
-            color: blue;
+            color: #828282;
         }
     }
     button{

@@ -68,7 +68,6 @@ export const Register =()=>{
                     </div>
                 </StyledSectionRender>
                 <StyledSectionDados>
-                    <img src={img} className='IMg' alt="img bb" />
                     <form onSubmit={handleSubmit(onDados)}>
                         <Link to='/'>Retornar para login</Link>
                         <h2>Cadastro</h2>
