@@ -1,4 +1,5 @@
-import { createContext ,ReactNode, useState} from "react";
+import { createContext , useEffect, useState} from "react";
+import { useNavigate } from "react-router-dom";
 import { Api } from "../../api/Api";
 import { iChildren } from "../../api/IterfaceServ";
 
@@ -8,38 +9,49 @@ interface iLoginDados{
 }
 interface iContextDados{
     requestLogin:(dados:iLoginDados)=>void
+    user:number;
+    setUser:any;
+    loading:boolean;
+    setLoading:any;
 }
 
-interface iUserDados{
-    accessToken:string;
-    user:{
-        email:string;
-        id:number;
-        name:string;
-    }
-}
 export const UserContext = createContext<iContextDados>({} as iContextDados)
- 
+
 export  const UserProvider = ({children}:iChildren)=>{
-    const [user,setUser]=useState<iUserDados>({} as iUserDados)
+    const navegation = useNavigate()
+    const [loading,setLoading]=useState(true)
+    const [user,setUser]=useState<number>(0 as number)
+
 
     const requestLogin= async (dados:iLoginDados)=>{
       try{
-        const {data} = await Api.post(`login`,dados)
-
-        localStorage.setItem('token',data.accessToken)
-       setUser(data)
+        const response= await Api.post(`login`,dados)
+        //seto o token
+        localStorage.setItem('token',response.data.accessToken)
+        const result =response.request.status 
+        // atualizo o estado
+        setUser(result)
+        //redireciono e notifico
+        navegation('/homepage')
       }
-
-
       catch(error){
         console.log(error)
       }
     }
 
+    useEffect(()=>{
+        const authoLogin=()=>{
+            const token = localStorage.getItem('token')
+            if(token){
+                navegation('/homepage')
+            }
+        }
+        authoLogin()
+    },[])
+
 
     return(
-        <UserContext.Provider value={{requestLogin}}>
+        <UserContext.Provider value={{requestLogin,user,setUser,loading,setLoading}}>
                 {children}
         </UserContext.Provider>
             

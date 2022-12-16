@@ -3,6 +3,7 @@ import { HomePage } from "../pages/HomePage"
 import { Login } from "../pages/Login"
 import { NotFound } from "../pages/NoutFound"
 import { Register } from "../pages/Register"
+import { ProtectionRoutes } from "../ProtectionRout"
 
 export const MainRout =()=>{
 
@@ -10,7 +11,10 @@ export const MainRout =()=>{
         <Routes>
             <Route path="/" element={<Login/>}/>
             <Route path="/register" element={<Register/>}/>
-            <Route path="/homepage" element={<HomePage/>}/>
+            {/* protegendo rotas que precisam de autenticação */}
+            <Route element={<ProtectionRoutes/>}>
+                <Route path="/homepage" element={<HomePage/>}/>
+            </Route>
             
             <Route path="*" element={<NotFound/>}/>
         </Routes>

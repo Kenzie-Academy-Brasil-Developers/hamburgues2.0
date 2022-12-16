@@ -20,6 +20,9 @@ export  const ModalProvider =({children}:iChildren)=>{
     const [openModal,setOpenModal] =useState(false)
 
     const [itemCar,setItemCar]=useState<iLista[]>([]) 
+    const openClose =()=>{
+        setOpenModal(!openModal)
+    }
 
     const addItemCar =(idItem:string)=>{
         const convert =parseInt(idItem)
@@ -33,7 +36,7 @@ export  const ModalProvider =({children}:iChildren)=>{
          buscItem[0].count=1
         // add propridade com tratativa de adicionar
          buscItem[0].realValor=buscItem[0].price*buscItem[0].count
-        console.log(buscItem)
+        
 
         setItemCar([...itemCar,buscItem[0]])
        }else{
@@ -74,8 +77,6 @@ export  const ModalProvider =({children}:iChildren)=>{
                }
                return element 
             })
-
-            console.log(up)
             setItemCar(up)
         }
 
@@ -89,10 +90,6 @@ export  const ModalProvider =({children}:iChildren)=>{
         const buscItemRemov = itemCar.filter(element=>element.id!==convert) 
         setItemCar(buscItemRemov)
     }
-    const openClose =()=>{
-        setOpenModal(!openModal)
-    }
-
     return(
         <ModalCOntext.Provider value={{openClose ,openModal,itemCar,addItemCar,setItemCar, removeItemCar,removeItemLixeira}}>
             {children}
