@@ -7,8 +7,7 @@ export interface IRegister{
 }
 export const RegisterApi = async (reg:IRegister)=>{
    try{
-    const reponse = await Api.post('users',reg)
-    console.log(reponse)
+    await Api.post('users',reg)  
    }
    catch(error){
        console.log(error)
