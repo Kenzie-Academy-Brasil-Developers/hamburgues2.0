@@ -1,19 +1,13 @@
 import { createContext, useEffect, useState } from "react";
 import { Api } from "../../api/Api";
-import { iChildren } from "../../api/IterfaceServ";
+import { iChildren, iLista } from "../../api/IterfaceServ";
 
-interface iLista{
-    category:string;
-    id: number;
-    img:string;
-    name: string;
-    price:number;
-}
 interface iContextDados{
     //um array de produtos
-    listSec: iLista[]
-    filterCards: (itemFilter:string)=>void
-    altoPrench: (itemFilter:any)=>void
+    listSec: iLista[];
+    listCard:iLista[];
+    filterCards: (itemFilter:string)=>void;
+    altoPrench: (itemFilter:any)=>void;
 }
 
 export  const CartContext = createContext <iContextDados>({} as iContextDados)
@@ -59,7 +53,7 @@ export  const CartProvider =({children}:iChildren)=>{
     },[])
 
     return(
-        <CartContext.Provider value={{listSec,filterCards ,altoPrench}}>
+        <CartContext.Provider value={{listSec,filterCards ,altoPrench,listCard}}>
             {children}
         </CartContext.Provider>
     )

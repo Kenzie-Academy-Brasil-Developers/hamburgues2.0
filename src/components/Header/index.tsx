@@ -13,7 +13,9 @@ export const Header =()=>{
     const navegation =useNavigate()
     
     const {filterCards,altoPrench}=useContext(CartContext)
-    const {openClose,openModal }=useContext(ModalCOntext)
+    const {openClose,openModal,itemCar }=useContext(ModalCOntext)
+
+    const totalItems = itemCar.length
 
     const [valuepes,setValuePesq]=useState('')
     return(
@@ -29,7 +31,7 @@ export const Header =()=>{
             </div>
                 <article>
                     <div>
-                        <span>0</span>
+                        <span>{totalItems}</span>
                         <img onClick={openClose} src={carinho} alt="" />
                     </div>
                     <img src={sair} onClick={()=>{navegation('/')}} alt="" />
