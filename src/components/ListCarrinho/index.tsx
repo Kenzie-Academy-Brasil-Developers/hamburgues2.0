@@ -4,7 +4,7 @@ import { StyleUlCart } from "./style"
 import lixo from '../../imgs/lixeira.svg'
 
 export const LisCarrinho=()=>{
-    const {itemCar}=useContext(ModalCOntext)
+    const {itemCar,addItemCar,removeItemCar,removeItemLixeira}=useContext(ModalCOntext)
     return(
         <StyleUlCart>
             {itemCar.map((element,index)=>{
@@ -16,13 +16,13 @@ export const LisCarrinho=()=>{
                                 <aside>
                                     <h3>{element.name}</h3>
                                     <strong>
-                                        <button className="extra">-</button>
-                                        <span>0</span>
-                                        <button className="extra">+</button>
+                                        <button id={element.id.toString()} onClick={(event)=>{removeItemCar(event.currentTarget.id)}} className="extra">-</button>
+                                        <span>{element.count}</span>
+                                        <button id={element.id.toString()}  onClick={(event)=>{addItemCar(event.currentTarget.id)}} className="extra">+</button>
                                     </strong>
                                 </aside>
                             </footer>
-                            <button id={element.id.toString()} className='btnFinis'>
+                            <button id={element.id.toString()} onClick={(event)=>{removeItemLixeira(event.currentTarget.id)}} className='btnFinis'>
                                 <img className="lixocs" src={lixo} alt="icone lixo" />
                             </button>
                         </section>

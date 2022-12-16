@@ -4,7 +4,7 @@ import { StyleTotalContainer } from "./style"
 
 export  const TotalCart =()=>{
     const{itemCar,setItemCar}=useContext(ModalCOntext)
-    const valueTotal = itemCar.reduce((initi,current)=>current.price+initi,0).toFixed(2)
+    const valueTotal = itemCar.reduce((initi,current)=>current.realValor+initi,0).toFixed(2)
     return(
         <StyleTotalContainer>
             <div>

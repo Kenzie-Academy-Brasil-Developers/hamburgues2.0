@@ -10,4 +10,6 @@ export interface iLista{
     img:string;
     name: string;
     price:number;
+    count:number;
+    realValor:number;
 }
