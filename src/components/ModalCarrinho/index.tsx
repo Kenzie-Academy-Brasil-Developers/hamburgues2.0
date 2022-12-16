@@ -1,13 +1,27 @@
 import { useContext } from "react"
 import { ModalCOntext } from "../../contexts/ModalContext"
-import { StyleContainer } from "./style"
+import { LisCarrinho } from "../ListCarrinho"
+import { StyleAuxi, StyleContainer } from "./style"
 
 export const ModalCarrinho = ()=>{
-    const {openClose}=useContext(ModalCOntext)
+    const {openClose ,itemCar }=useContext(ModalCOntext)
     return(
         <StyleContainer>
-            <h1>TO AQUI CARALHO</h1>
-            <button onClick={openClose}>X</button>
+            <StyleAuxi>
+                <section>
+                    <h1>Carrinho de compras</h1>
+                    <button onClick={openClose}>X</button>
+                </section>
+                {/* só rederiza se não tiver item no carrinho */}
+
+                {itemCar.length===0?<article>
+                    <h3>Sua sacola está vazia {`:(`}</h3>
+                    <p>Adicione items</p>
+                </article>:null}   
+
+                <LisCarrinho/>   
+                <div>TOTALAQUI</div>
+            </StyleAuxi>
         </StyleContainer>
     )
 }
