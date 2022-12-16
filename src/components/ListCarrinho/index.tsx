@@ -7,9 +7,9 @@ export const LisCarrinho=()=>{
     const {itemCar}=useContext(ModalCOntext)
     return(
         <StyleUlCart>
-            {itemCar.map((element)=>{
+            {itemCar.map((element,index)=>{
                 return(
-                    <li key={element.id}>
+                    <li key={index}>
                         <section>
                             <footer>
                                 <img src={element.img} alt={`imagem de um ${element.name}`} />

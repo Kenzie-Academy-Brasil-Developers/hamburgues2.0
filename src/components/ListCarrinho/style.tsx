@@ -10,9 +10,7 @@ export const StyleUlCart = styled.ul`
         padding: 0px 15px;
         padding-top: 25px;
         padding-bottom: 15px;
-
         overflow: auto;
-
         li{
             list-style: none;
              width: 100%;    

@@ -7,6 +7,7 @@ interface iContextDados{
     openModal:boolean;
     itemCar: iLista[];
     addItemCar:(idItem:string)=> void
+    setItemCar:any;
 }
 export const ModalCOntext =createContext<iContextDados>({} as iContextDados)
 
@@ -27,7 +28,7 @@ export  const ModalProvider =({children}:iChildren)=>{
     }
 
     return(
-        <ModalCOntext.Provider value={{openClose ,openModal,itemCar,addItemCar}}>
+        <ModalCOntext.Provider value={{openClose ,openModal,itemCar,addItemCar,setItemCar}}>
             {children}
         </ModalCOntext.Provider>
     )

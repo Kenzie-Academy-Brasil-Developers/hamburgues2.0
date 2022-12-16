@@ -18,10 +18,10 @@ export const StyleAuxi =styled.div`
         min-height: 15.625rem;
         margin-top: 9.375rem;
 
-
         background-color: #FFFF;
-        /* border: 0.0625rem solid #F5F5F5; */
         border-radius: 0.3125rem;
+
+        position: relative;
     
         section{
         width: 100%;
@@ -55,7 +55,6 @@ export const StyleAuxi =styled.div`
         justify-content: center;
         align-items: center;
         height: 78%;
-
         h3{
             font-weight: 700;
             font-size: 1.125rem;

@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { ModalCOntext } from "../../contexts/ModalContext"
 import { LisCarrinho } from "../ListCarrinho"
+import { TotalCart } from "../TotalCart"
 import { StyleAuxi, StyleContainer } from "./style"
 
 export const ModalCarrinho = ()=>{
@@ -17,10 +18,11 @@ export const ModalCarrinho = ()=>{
                 {itemCar.length===0?<article>
                     <h3>Sua sacola está vazia {`:(`}</h3>
                     <p>Adicione items</p>
-                </article>:null}   
+                </article>:null}  
 
                 <LisCarrinho/>   
-                <div>TOTALAQUI</div>
+
+                {itemCar.length!==0?<TotalCart/>:null}
             </StyleAuxi>
         </StyleContainer>
     )
