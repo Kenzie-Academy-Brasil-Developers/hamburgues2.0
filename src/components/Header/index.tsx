@@ -8,6 +8,7 @@ import { CartContext } from "../../contexts/CartContext"
 import { ModalCOntext } from "../../contexts/ModalContext"
 import { ModalCarrinho } from "../ModalCarrinho"
 import { useNavigate } from "react-router-dom"
+import { toast } from "react-toastify"
 
 export const Header =()=>{
     const navegation =useNavigate()
@@ -18,6 +19,12 @@ export const Header =()=>{
     const totalItems = itemCar.length
 
     const [valuepes,setValuePesq]=useState('')
+
+    const logout =()=>{
+        localStorage.clear()
+        navegation('/')
+        toast.success('Você deslogou com sucesso',{autoClose:3000})
+    }
     return(
         <StyleHeader>
             <div className='divOne'>
@@ -34,7 +41,7 @@ export const Header =()=>{
                         <span>{totalItems}</span>
                         <img onClick={openClose} src={carinho} alt="" />
                     </div>
-                    <img src={sair} onClick={()=>{navegation('/')}} alt="" />
+                    <img src={sair} onClick={logout} alt="" />
                 </article>
                 {openModal?<ModalCarrinho/>:null}
                

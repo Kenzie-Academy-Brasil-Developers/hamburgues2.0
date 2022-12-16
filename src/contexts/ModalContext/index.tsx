@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { toast } from "react-toastify";
 import { iChildren, iLista } from "../../api/IterfaceServ";
 import { CartContext } from "../CartContext";
 
@@ -36,7 +37,7 @@ export  const ModalProvider =({children}:iChildren)=>{
          buscItem[0].count=1
         // add propridade com tratativa de adicionar
          buscItem[0].realValor=buscItem[0].price*buscItem[0].count
-        
+        toast.success('Item adicionado ao carrinho')
 
         setItemCar([...itemCar,buscItem[0]])
        }else{
@@ -82,13 +83,13 @@ export  const ModalProvider =({children}:iChildren)=>{
 
 
 
-
     }
 
     const removeItemLixeira =(idItem:string)=>{
         const convert =parseInt(idItem)
         const buscItemRemov = itemCar.filter(element=>element.id!==convert) 
         setItemCar(buscItemRemov)
+        toast.success('Item removido com sucesso')
     }
     return(
         <ModalCOntext.Provider value={{openClose ,openModal,itemCar,addItemCar,setItemCar, removeItemCar,removeItemLixeira}}>

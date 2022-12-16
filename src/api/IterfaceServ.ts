@@ -13,3 +13,8 @@ export interface iLista{
     count:number;
     realValor:number;
 }
+export interface IRegister{
+    name:string,
+    email:string,
+    password:string,
+}

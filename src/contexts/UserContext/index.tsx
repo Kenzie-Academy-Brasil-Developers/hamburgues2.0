@@ -1,5 +1,6 @@
 import { createContext , useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { Api } from "../../api/Api";
 import { iChildren } from "../../api/IterfaceServ";
 
@@ -32,10 +33,14 @@ export  const UserProvider = ({children}:iChildren)=>{
         // atualizo o estado
         setUser(result)
         //redireciono e notifico
-        navegation('/homepage')
+        setTimeout(()=>{navegation('/homepage')},1000)
+        toast.success('Login efetuado com sucesso',{autoClose:3000})
+        
+
       }
       catch(error){
         console.log(error)
+        toast.error('Erro ao efetuar login',{autoClose:3000})
       }
     }
 
