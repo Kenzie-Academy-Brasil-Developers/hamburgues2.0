@@ -8,7 +8,6 @@ interface iContextDados{
     listSec: iLista[];
     listCard:iLista[];
     filterCards: (itemFilter:string)=>void;
-    altoPrench: (itemFilter:any)=>void;
 }
 
 export  const CartContext = createContext <iContextDados>({} as iContextDados)
@@ -28,17 +27,6 @@ export  const CartProvider =({children}:iChildren)=>{
        const filter = listCard.filter((element)=>element.name.toUpperCase().includes(trat))
        setListSec(filter)
     }
-    // evento para listar tudo novamente quando o input estiver vazio
-  const altoPrench =(temFilter:any)=>{
-    const veriValue =temFilter.target.value
-    if(veriValue===''){
-    return  setListSec(listCard)
-    }else{
-      //filtro para cada click
-      filterCards(veriValue)
-    }
-  }
-
     useEffect(()=>{ 
             const requesProducts= async ()=>{
                  
@@ -69,7 +57,7 @@ export  const CartProvider =({children}:iChildren)=>{
     },[user])
 
     return(
-        <CartContext.Provider value={{listSec,filterCards ,altoPrench,listCard}}>
+        <CartContext.Provider value={{listSec,filterCards ,listCard}}>
             {children}
         </CartContext.Provider>
     )

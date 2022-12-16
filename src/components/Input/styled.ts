@@ -34,6 +34,7 @@ export  const StyledInput =styled.div`
         color: red;
         right: 0;
         bottom: -21px;
-        text-align: end;
+        text-align: end; 
+        z-index: 99;
     }
 `

@@ -15,7 +15,7 @@ export const ListCards = ()=>{
                     <div>
                         <h3>{element.name}</h3>
                         <span>{element.category}</span>
-                        <p>R$ {element.price}</p>
+                        <p>R$ {element.price.toFixed(2)}</p>
                         <button id={element.id.toString()} onClick={(event)=>{addItemCar(event.currentTarget.id)}}>Adicionar</button>
                     </div>
                 </li>

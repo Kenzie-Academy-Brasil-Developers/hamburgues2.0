@@ -30,6 +30,10 @@ export  const StyledSectionDados =styled.section`
         width: 100%;
         max-width: 500px;
 
+        a{
+        width: 100%;
+    }
+
         background: var(--color-grey-2);
         border: 0.125rem solid var(--color-grey-1);
         box-shadow: 0rem 0rem 1.875rem -1.25rem rgba(0, 0, 0, 0.25);

@@ -5,7 +5,7 @@ import  log  from '../../imgs/logan.svg'
 import  wtf  from '../../imgs/wtf.svg'
 import bag from '../../imgs/bag.svg'
 import { StyledMain,  StyledContainer,StyledSectionDados,StyledSectionRender } from "./styled"
-import { useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { SubmitHandler, useForm } from "react-hook-form"
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
@@ -18,7 +18,6 @@ interface iDadosLogin{
 }
 
 export const Login =()=>{
-    const navegation = useNavigate()
     const {requestLogin}=useContext(UserContext)
 
     const validation = yup.object().shape({
@@ -45,7 +44,9 @@ export const Login =()=>{
                         <Input label="Senha" placeholder="Digite sua senha aqui" type="password" register={register('password')} name={errors.password?.message}/>
                         <button className="buttonLogar">Logar</button>
                         <span>Cria sua conta para saborear mais delícias e matar sua fome!</span>
-                        <Button type={'submit'} onClick={()=>{navegation('/register')}} nome='Cadastrar'/>
+                        <Link to='register'>
+                            <Button type={'submit'}nome='Cadastrar'/>
+                        </Link>
                     </form>
                 </StyledSectionDados>
 
