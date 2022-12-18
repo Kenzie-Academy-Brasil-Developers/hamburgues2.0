@@ -76,4 +76,7 @@ import styled from "styled-components";
             }
         }
      }
+     .togleClass{
+            background-color: var(--color-grenn);
+     }
  `
