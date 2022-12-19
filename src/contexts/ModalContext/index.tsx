@@ -11,6 +11,7 @@ interface iContextDados{
     setItemCar:any;
     removeItemCar:(idItem:string)=> void;
     removeItemLixeira:(idItem:string)=>void;
+    toogle:(event:any)=>void;
 }
 
 
@@ -53,9 +54,8 @@ export  const ModalProvider =({children}:iChildren)=>{
             return element
         })
         setItemCar(up)
-
        }
-
+       toogle(idItem)
     }
 
     const removeItemCar = (idItem:string)=>{
@@ -90,9 +90,14 @@ export  const ModalProvider =({children}:iChildren)=>{
         const buscItemRemov = itemCar.filter(element=>element.id!==convert) 
         setItemCar(buscItemRemov)
         toast.success('Item removido com sucesso')
+        toogle(idItem)
+    }
+    // função toggle em produção
+    const toogle =  (idItem:string)=>{ 
+        console.log(itemCar)
     }
     return(
-        <ModalCOntext.Provider value={{openClose ,openModal,itemCar,addItemCar,setItemCar, removeItemCar,removeItemLixeira}}>
+        <ModalCOntext.Provider value={{openClose ,openModal,itemCar,addItemCar,setItemCar, removeItemCar,removeItemLixeira,toogle}}>
             {children}
         </ModalCOntext.Provider>
     )

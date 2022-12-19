@@ -14,8 +14,7 @@ export const StyleUlCart = styled.ul`
         li{
             list-style: none;
              width: 100%;    
-            section{
-                
+             section{         
                 width: 100%;
                 height: 120px;
                 display: flex;

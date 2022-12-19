@@ -7,6 +7,10 @@ export  const GlobalStyled = createGlobalStyle`
   margin: 0;
   padding: 0;
 }
+body{
+   font-family: 'Inter', sans-serif;
+}
+
  :root{
   --color-grenn: #27AE60;
   --color-grenn-light:#93D7AF;
@@ -30,7 +34,7 @@ export  const GlobalStyled = createGlobalStyle`
     
     color: black;
     background:#FFFFFF;
-    border: 2px solid #F5F5F5;
+    border: 1px solid #F5F5F5;
     border-radius: 8px;
  }
  input::placeholder{
@@ -39,5 +43,7 @@ export  const GlobalStyled = createGlobalStyle`
  input:focus {
 box-shadow: 0 0 0 0;
 outline: 0;
+border: #168821 1px solid;
+background-color: #F5F5F5;
  }
 `

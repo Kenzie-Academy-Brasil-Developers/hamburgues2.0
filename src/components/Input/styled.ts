@@ -7,9 +7,6 @@ export  const StyledInput =styled.div`
     border: 0.125rem solid var(--color-grey-4);
     border-radius: 0.5rem;
     background: var(--color-grey-2);
-
-    background-color: red;
-
     position: relative;
     label{
         position: absolute;
