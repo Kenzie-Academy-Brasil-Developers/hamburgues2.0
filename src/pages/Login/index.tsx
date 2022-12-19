@@ -8,9 +8,9 @@ import { StyledMain,  StyledContainer,StyledSectionDados,StyledSectionRender } f
 import { Link } from "react-router-dom"
 import { SubmitHandler, useForm } from "react-hook-form"
 import { yupResolver } from '@hookform/resolvers/yup'
-import * as yup from 'yup'
 import { useContext } from "react"
 import { UserContext } from "../../contexts/UserContext"
+import { validationLogin } from "../../schema/validation"
 
 interface iDadosLogin{
     email:string;
@@ -20,13 +20,9 @@ interface iDadosLogin{
 export const Login =()=>{
     const {requestLogin}=useContext(UserContext)
 
-    const validation = yup.object().shape({
-        email:yup.string().required('Email Obrigatório').email('Email inválido'),
-        password:yup.string().required('Senha Obrigatória'),
-})
 
     const {register,handleSubmit,formState:{errors}}=useForm<iDadosLogin>({
-        resolver:yupResolver(validation)
+        resolver:yupResolver(validationLogin)
     })
 
     const dadosLogin:SubmitHandler<iDadosLogin>=(dados)=>{

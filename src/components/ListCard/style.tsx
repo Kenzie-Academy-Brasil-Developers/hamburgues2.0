@@ -30,6 +30,9 @@ import styled from "styled-components";
         background: var(--color-grey-1);
         border: 2px solid #E0E0E0;
         border-radius: 0.3125rem;
+        :hover{
+            box-shadow: 5px 5px 5px 5px;
+        }
         img{
             width: 60%;
             height: 9.375rem;
@@ -75,5 +78,8 @@ import styled from "styled-components";
                 }
             }
         }
+     }
+     .togleClass{
+            background-color: var(--color-grenn);
      }
  `

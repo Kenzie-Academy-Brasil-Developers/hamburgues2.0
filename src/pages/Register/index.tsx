@@ -5,12 +5,11 @@ import  wtf  from '../../imgs/wtf.svg'
 import bag from '../../imgs/bag.svg'
 import { StyledMain,  StyledContainer,StyledSectionDados,StyledSectionRender } from "./styled"
 import { Link, useNavigate } from "react-router-dom"
-import img from '../../imgs/ela.png'
 import { SubmitHandler, useForm } from "react-hook-form"
 import { yupResolver } from '@hookform/resolvers/yup'
-import * as yup from 'yup'
 import { RegisterApi } from "../../api/PostReg"
 import { toast } from "react-toastify"
+import { validationRegister } from "../../schema/validation"
 
 interface iDadosParamentro{
     name:string,
@@ -26,23 +25,9 @@ export interface IRegister{
 
 export const Register =()=>{
     const navegation = useNavigate()
-    //não preciso tipificar meu yup
-    const validation = yup.object().shape({
-            name:yup.string().required('Nome Obrigatório').min(3,'No mínimo 3 caracteres').max(150,'Limite máximo de 150 digitos inseridos'),
-            email:yup.string().required('Email Obrigatório').email('Email inválido'),
-
-            password:yup.string().required('Senha Obrigatória')
-            .matches(/(?=.*\d)/,'deve conter ao menos um dígito')
-            .matches(/(?=.*[a-z])/,'deve conter ao menos uma letra minúscula')
-            .matches(/(?=.*[A-Z])/,'deve conter ao menos uma letra maiúscula')
-            .matches(/(?=.*[$*&@#])/,'deve conter ao menos um caractere especial')
-            .matches(/[0-9a-zA-Z$*&@#]{8,}/,'deve conter ao menos 8 dos caracteres mencionados'),
-
-            confPassword:yup.string().required('Confirmação obrigatória').oneOf([yup.ref("password")], 'Senhas não conferem'),
-    })
      // tipifico meu use form com o tipo de objeto que ele irá receber
     const {register,handleSubmit, formState:{errors}} = useForm<iDadosParamentro>({
-        resolver:yupResolver(validation)
+        resolver:yupResolver(validationRegister)
     })
     //função  para registar usuario  
     // tipifico minha função com o submitHandler (nativa do react-hook form), passando o tipo do tipo
