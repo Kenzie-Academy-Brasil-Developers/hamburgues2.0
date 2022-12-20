@@ -33,5 +33,6 @@ export  const StyledInput =styled.div`
         bottom: -21px;
         text-align: end; 
         z-index: 99;
+        font-size: 13px;
     }
 `
