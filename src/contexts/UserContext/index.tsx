@@ -2,7 +2,7 @@ import { createContext , useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Api } from "../../api/Api";
-import { iChildren } from "../../api/IterfaceServ";
+import { iChildren ,IRegister } from "../../api/IterfaceServ";
 
 interface iLoginDados{
     email:string;
@@ -14,15 +14,31 @@ interface iContextDados{
     setUser:any;
     loading:boolean;
     setLoading:any;
+    RegisterApi: (reg:IRegister)=>void;
 }
 
 export const UserContext = createContext<iContextDados>({} as iContextDados)
 
 export  const UserProvider = ({children}:iChildren)=>{
     const navegation = useNavigate()
+
     const [loading,setLoading]=useState(true)
     const [user,setUser]=useState<number>(0 as number)
 
+    const RegisterApi = async (reg:IRegister)=>{
+        try{
+            const reponse = await Api.post('users',reg)  
+        
+            toast.success('Registro realizado com sucesso',{autoClose:2000})
+            setTimeout(()=>{navegation('/')},2000)
+            console.log(reponse.status)
+        }
+        catch(error){
+            toast.error('Falha ao Realizar Cadastro')
+            console.log(error)
+        }
+     }
+     
 
     const requestLogin= async (dados:iLoginDados)=>{
       try{
@@ -56,7 +72,7 @@ export  const UserProvider = ({children}:iChildren)=>{
 
 
     return(
-        <UserContext.Provider value={{requestLogin,user,setUser,loading,setLoading}}>
+        <UserContext.Provider value={{requestLogin,user,setUser,loading,setLoading,RegisterApi}}>
                 {children}
         </UserContext.Provider>
             

@@ -4,12 +4,12 @@ import  log  from '../../imgs/logan.svg'
 import  wtf  from '../../imgs/wtf.svg'
 import bag from '../../imgs/bag.svg'
 import { StyledMain,  StyledContainer,StyledSectionDados,StyledSectionRender } from "./styled"
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { SubmitHandler, useForm } from "react-hook-form"
 import { yupResolver } from '@hookform/resolvers/yup'
-import { RegisterApi } from "../../api/PostReg"
-import { toast } from "react-toastify"
 import { validationRegister } from "../../schema/validation"
+import { useContext } from "react"
+import { UserContext } from "../../contexts/UserContext"
 
 interface iDadosParamentro{
     name:string,
@@ -17,14 +17,9 @@ interface iDadosParamentro{
     password:string,
     confPassword?:string
 }
-export interface IRegister{
-    name:string,
-    email:string,
-    password:string,
-}
 
 export const Register =()=>{
-    const navegation = useNavigate()
+    const { RegisterApi}=useContext(UserContext)
      // tipifico meu use form com o tipo de objeto que ele irá receber
     const {register,handleSubmit, formState:{errors}} = useForm<iDadosParamentro>({
         resolver:yupResolver(validationRegister)
@@ -32,13 +27,11 @@ export const Register =()=>{
     //função  para registar usuario  
     // tipifico minha função com o submitHandler (nativa do react-hook form), passando o tipo do tipo
    const onDados: SubmitHandler<iDadosParamentro>=(dados)=>{
+    //removendo a propriedade confPassword
     delete dados.confPassword
-    RegisterApi(dados)
-    toast.success('Registro realizado com sucesso',{autoClose:2000})
-    setTimeout(()=>{navegation('/')},2000)
-}
     
-
+    RegisterApi(dados) 
+}
     return (
         <StyledMain>
             <StyledContainer>

@@ -27,6 +27,8 @@ export  const CartProvider =({children}:iChildren)=>{
        const filter = listCard.filter((element)=>element.name.toUpperCase().includes(trat))
        setListSec(filter)
     }
+
+    // usefect utilizado para atualizar o state caso o token existe e seja válido!
     useEffect(()=>{ 
             const requesProducts= async ()=>{
                  
