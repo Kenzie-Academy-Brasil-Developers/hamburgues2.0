@@ -10,9 +10,9 @@ export const validationRegister = yup.object().shape({
     email:yup.string().required('Email Obrigatório').email('Email inválido'),
 
     password:yup.string().required('Senha Obrigatória')
-    .matches(/(?=.*\d)/,'deve conter ao menos um dígito')
-    .matches(/(?=.*[a-z])/,'deve conter ao menos uma letra minúscula')
-    .matches(/(?=.*[A-Z])/,'deve conter ao menos uma letra maiúscula')
+    .matches(/(?=.*\d)/,'digite ao menos um dígito')
+    .matches(/(?=.*[a-z])/,'digite ao menos uma letra minúscula')
+    .matches(/(?=.*[A-Z])/,'digite ao menos uma letra maiúscula')
     .matches(/(?=.*[$*&@#])/,'digite um caractere especial($*&@#)'),
 
     confPassword:yup.string().required('Confirmação obrigatória').oneOf([yup.ref("password")], 'Senhas não conferem'),

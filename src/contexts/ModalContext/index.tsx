@@ -11,7 +11,7 @@ interface iContextDados{
     setItemCar:any;
     removeItemCar:(idItem:string)=> void;
     removeItemLixeira:(idItem:string)=>void;
-    toogle:(event:any)=>void;
+    toogle:(innertext:any,id:number|string)=>void;
 }
 
 
@@ -20,18 +20,23 @@ export const ModalCOntext =createContext<iContextDados>({} as iContextDados)
 export  const ModalProvider =({children}:iChildren)=>{
     const {listCard}=useContext(CartContext)
     const [openModal,setOpenModal] =useState(false)
-
     const [itemCar,setItemCar]=useState<iLista[]>([]) 
+
     const openClose =()=>{
         setOpenModal(!openModal)
     }
 
     const addItemCar =(idItem:string)=>{
+        
         const convert =parseInt(idItem)
         const buscItem = listCard.filter(element=>element.id===convert)
-
+        
         // verificando se o item está  no carrinho
         const verifItem = itemCar.includes(buscItem[0])
+        
+        // funçao toogle
+        // toogle(event,convert)
+
 
        if(!verifItem){
         //add a propriedade count
@@ -55,7 +60,6 @@ export  const ModalProvider =({children}:iChildren)=>{
         })
         setItemCar(up)
        }
-       toogle(idItem)
     }
 
     const removeItemCar = (idItem:string)=>{
@@ -90,11 +94,18 @@ export  const ModalProvider =({children}:iChildren)=>{
         const buscItemRemov = itemCar.filter(element=>element.id!==convert) 
         setItemCar(buscItemRemov)
         toast.success('Item removido com sucesso')
-        toogle(idItem)
     }
     // função toggle em produção
-    const toogle =  (idItem:string)=>{ 
-        console.log(itemCar)
+    const toogle =  (eventTogle:any,id:number|string)=>{  
+        console.log(id)
+
+        const buscandoBtn = listCard.map((element)=>{
+            console.log(element)
+        }) 
+        const inerText = eventTogle.innerText 
+        if(!id){
+            eventTogle.innerText='Item adicionado'
+        }
     }
     return(
         <ModalCOntext.Provider value={{openClose ,openModal,itemCar,addItemCar,setItemCar, removeItemCar,removeItemLixeira,toogle}}>

@@ -5,7 +5,8 @@ import { StyleUl } from "./style"
 
 export const ListCards = ()=>{
      const {listSec}=useContext(CartContext)  
-     const {addItemCar}=useContext(ModalCOntext) 
+     const {addItemCar}=useContext(ModalCOntext)
+    
 
 
     return(
